@@ -20,7 +20,7 @@ export const Card = ({item, lg='' }) => {
             <Skeleton className='mb-3' width={'50%'} />
          )}
          {item ? (
-            <h2>
+            <h2 style={{ textDecoration: 'underline' }}>
                <Link to={`/blogpost/${item.slugify}`}>{item.title}</Link>
             </h2>
          ) : (

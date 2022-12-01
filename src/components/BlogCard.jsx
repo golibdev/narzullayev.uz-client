@@ -26,7 +26,7 @@ export const BlogCard = ({ item }) => {
                <Skeleton count={1} width={'50%'} />
             )}
             {item ? (
-               <h3>
+               <h3 style={{ textDecoration: 'underline' }}>
                   <Link to={`/blogpost/${item.slugify}`}>{item.title}</Link>
                </h3>
             ) : <div>

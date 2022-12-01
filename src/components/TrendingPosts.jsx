@@ -13,10 +13,9 @@ export const TrendingPosts = () => {
                   <li key={item._id}>
                      <Link to={`/blogpost/${item.slugify}`}>
                         <span className="number">{index + 1}</span>
-                        <h3>
+                        <h3 style={{ textDecoration: 'underline' }}>
                            {topBlogs ? item.title : <Skeleton count={3} />}
                         </h3>
-                        <span className="author">G'. Narzullayev</span>
                      </Link>
                   </li>
                ))}
