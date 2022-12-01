@@ -15,11 +15,6 @@ export const Card = ({item, lg='' }) => {
                <span className="date">{item.category.categoryName}</span>
                <span className="mx-1">•</span> 
                <span>{moment(item.createdAt).format('DD.MM.YYYY')}</span>
-               <span className="mx-1">•</span> 
-               <span>
-                  <i className='bi bi-eye me-1'></i>
-                  {item.views}
-               </span>
             </div>
          ) : (
             <Skeleton className='mb-3' width={'50%'} />

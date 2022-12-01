@@ -15,7 +15,7 @@ export const BlogCard = ({ item }) => {
                <div className="post-meta">
                   <span className="date">{item.category?.categoryName}</span> 
                   <span className="mx-1">•</span> 
-                  <span>{moment(item.createdAt).format('DD.MM.YYYY HH:mm')}</span>
+                  <span>{moment(item.createdAt).format('DD.MM.YYYY')}</span>
                   <span className="mx-1">•</span> 
                   <span>
                      <i className='bi bi-eye me-1'></i>

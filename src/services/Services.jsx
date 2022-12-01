@@ -25,6 +25,14 @@ async function getOne(slug) {
    } catch (err) {}
 }
 
+async function getTopBlogs() {
+   try {
+      const res = await blogApi.getTopBlogs();
+      const blogs = await res.data.blogs;
+      return blogs;
+   } catch (err) {}
+}
+
 async function createComment(blogId, params) {
    try {
       const res = await commentApi.create(blogId, params);
@@ -39,5 +47,6 @@ export {
    getAllBlog,
    getPagination,
    createComment,
-   getOne
+   getOne,
+   getTopBlogs
 }

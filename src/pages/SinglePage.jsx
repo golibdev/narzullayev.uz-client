@@ -29,17 +29,21 @@ const SinglePage = () => {
                <div className="col-md-9 post-content content">
                   <div className="single-post">
                      {blog ? (
-                        <div className="post-meta">
-                           <span className="date">{blog?.category?.categoryName}</span>
-                           <span className="mx-1">•</span> 
-                           <span>{moment(blog.creatadAt).format('DD MM YYYY HH:mm')}</span>
-                           <span className="mx-1">•</span> 
-                           <span>
-                              <i className='bi bi-eye me-1'></i>
-                              {blog?.views}
-                           </span>
+                        <div className="post-meta d-flex justify-content-between">
+                           <div className='left'>
+                              <span className="date">{blog?.category?.categoryName}</span>
+                           </div>
+                           <div className='right'>
+                              <span className='me-3'>
+                                 {moment(blog.creatadAt).format('DD.MM.YYYY')}
+                              </span>
+                              <span>
+                                 <i className='bi bi-eye me-1'></i>
+                                 {blog?.views}
+                              </span>
+                           </div>
                         </div>
-                     ): <Skeleton width={'50%'} />}
+                     ): <Skeleton count={1} width={'100%'} />}
                   </div>
                   {blog ? <h1 className="mb-5">{blog.title}</h1> : <Skeleton count={1} />}
                   {blog ? <p className='short-content'>{blog.shortContent}</p> : <Skeleton count={1} />}

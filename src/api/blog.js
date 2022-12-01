@@ -8,6 +8,9 @@ export const blogApi = {
    getPageAll: () => axios.get(
       `${baseUrl}blog/get-pagination`
    ),
+   getTopBlogs: () => axios.get(
+      `${baseUrl}/blog/top`
+   ),
    getPagination: (page) => axios.get(
       `${baseUrl}blog/get-pagination?page=${page}`
    ),
