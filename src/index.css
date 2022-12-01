@@ -1,0 +1,38 @@
+.swiper {
+   border-radius: 5px !important;
+}
+
+.custom-pagination {
+   list-style-type: none;
+   padding: 0 !important;
+}
+
+.content span,
+.content a,
+.content h1,
+.content p,
+.content li {
+   background: transparent !important;
+}
+
+.short-content {
+   display: inline-block;
+}
+
+.short-content::first-letter {
+   float: left;
+   font-family: Georgia;
+   font-size: 75px;
+   line-height: 60px;
+   padding-top: 4px;
+   padding-right: 8px;
+   padding-left: 3px;
+}
+
+.form-check-input {
+   margin-left: 0 !important;
+}
+
+.post-meta {
+   margin-top: 15px !important;
+}
