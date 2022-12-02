@@ -7,6 +7,12 @@
    padding: 0 !important;
 }
 
+img {
+   width: 100% !important;
+   object-fit: cover !important;
+   height: auto;
+}
+
 .content span,
 .content a,
 .content h1,
