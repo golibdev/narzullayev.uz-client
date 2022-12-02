@@ -3,6 +3,7 @@ import Provider from '../contexts/Provider';
 import { MainLayout } from '../layouts/MainLayout';
 import Wrapper from '../layouts/Wrapper';
 import { Blogs } from '../pages/Blogs';
+import { Error } from '../pages/Error';
 import { Home } from '../pages/Home';
 import SinglePage from '../pages/SinglePage';
 
@@ -16,6 +17,7 @@ export const App = () => {
                      <Route index element={<Home/>}/>
                      <Route path='/blogs' element={<Blogs/>}/>
                      <Route path='/blogpost/:slug' element={<SinglePage/>}/>
+                     <Route path='*' element={<Error/>} />
                   </Route>
                </Routes>
             </Provider>

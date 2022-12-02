@@ -2,11 +2,12 @@ import { useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import useBlogs from '../hooks/useBlogs';
 
-export const Pagination = () => {
-   const { getPagination, setCurrentPage, currentPage, setBlogs, pageCount } = useBlogs();
+export const Pagination = ({ setCurrentPage, currentPage, setBlogs, pageCount }) => {
+   const { getPagination } = useBlogs();
 
    const handleClick = (e) => {
       setCurrentPage(e.selected + 1);
+      console.log("Ishla");
       console.log(currentPage);
    }
 

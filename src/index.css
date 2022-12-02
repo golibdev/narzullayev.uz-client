@@ -36,3 +36,8 @@
 .post-meta {
    margin-top: 15px !important;
 }
+
+.img-bg,
+.img-fluid {
+   object-fit: cover !important;
+}

@@ -1,16 +1,31 @@
+import { useEffect, useState } from 'react';
 import useBlogs from '../hooks/useBlogs';
 import { Card } from './Card';
 
 export const MainBlogs = () => {
-   const { blogs } = useBlogs();
+   const [blogs, setBlogs] = useState([]);
+   const [loading, setLoading] = useState(false);
+   const { getData } = useBlogs()
+
+   useEffect(() => {
+      const fetching = async () => {
+         try {
+            const data = await getData("ALL_BLOGS");
+            setBlogs(data.blogs);
+            setTimeout(() => {
+               setLoading(true);
+            }, 500);
+         } catch (err) {}
+      }
+
+      fetching();
+   }, [])
    return (
-      <div className="col-lg-5">
-         <div className="row g-5">
-            {blogs.filter((_, index) => index !== 0).map(item => (
-               <div className="col-lg-6 col-md-6 border-start custom-border" key={item._id}>
-                  <div className="d-flex flex-wrap">
-                     <Card item={item}/>
-                  </div>
+      <div className="col-lg-9">
+         <div className="row g-3">
+            {blogs.map(item => (
+               <div className="col-lg-4 col-md-6 border-start custom-border" key={item._id}>
+                  <Card item={item} loading={loading} />
                </div>
             ))}
          </div>

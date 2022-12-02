@@ -639,7 +639,6 @@ section {
 .img-bg:before {
   position: absolute;
   content: "";
-  background: rgb(0, 0, 0);
   background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
   opacity: 0.5;
   bottom: 0;

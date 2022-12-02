@@ -2,17 +2,14 @@ import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';
 import Skeleton from 'react-loading-skeleton';
-import useBlogs from '../hooks/useBlogs';
 
-export const Carousel = () => {
-   const blogs = useBlogs();
-   const data = blogs.blogs;
+export const Carousel = ({ blogs, loading }) => {
    return (
       <section id="hero-slider" className="hero-slider">
          <div className="container">
             <div className="row">
                <div className="col-12">
-                  {data ? (
+                  {loading ? (
                      <Swiper
                         modules={[Navigation, Pagination, Autoplay]}
                         spaceBetween={50}
@@ -23,9 +20,9 @@ export const Carousel = () => {
                         pagination={{ clickable: true }}
                         scrollbar={{ draggable: true }}
                      >
-                        {data.map(item => (
+                        {blogs.map(item => (
                            <SwiperSlide key={item._id}>
-                              <Link to={`/blogpost/${item.slugify}`} className="img-bg d-flex align-items-end" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${item.image})`}}>
+                              <Link to={`/blogpost/${item.slugify}`} className="img-bg d-flex align-items-end" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${item.image})`}}>
                                  <div className="img-bg-inner">
                                     <h2>{item.title}</h2>
                                     <p>{item.shortContent}</p>

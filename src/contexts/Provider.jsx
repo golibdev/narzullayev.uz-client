@@ -1,21 +1,19 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext } from "react";
 import { getAllBlog, createComment, getPagination, getOne, getTopBlogs } from '../services/Services'
 const Context = createContext(null);
 
 function Provider({ children, ...rest }) {
-   const [blogs, setBlogs] = useState([]);
-   const [topBlogs, setTopBlogs] = useState([]);
-   const [currentPage, setCurrentPage] = useState(0);
-   const [pageCount, setPageCount] = useState(0);
-
-   const getData = async () => {
+   const getData = async (type) => {
       try {
-         const result = await getAllBlog();
-         const top = await getTopBlogs();
-         const pagination = result.pagination
-         setBlogs(result.blogs);
-         setTopBlogs(top);
-         setPageCount(Math.ceil(pagination.total / 10));
+         switch(type) {
+            case "ALL_BLOGS":
+               const all = await getAllBlog();
+               const pagination = all.pagination
+               return { blogs: all.blogs, pagination }
+            case "TOP_BLOGS":
+               const top = await getTopBlogs();
+               return top
+         }
       } catch (err) {}
    }
    const data = {
@@ -23,19 +21,8 @@ function Provider({ children, ...rest }) {
       getPagination,
       getOne,
       createComment,
-      setCurrentPage,
-      setPageCount,
-      setBlogs,
-      blogs,
-      setTopBlogs,
-      topBlogs,
-      currentPage,
-      pageCount,
+      getData
    }
-
-   useEffect(() => {
-      getData();
-   }, [])
    return (
       <Context.Provider value={data} {...rest}>
          {children}
