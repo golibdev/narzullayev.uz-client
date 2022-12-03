@@ -17,7 +17,7 @@ export const Home = () => {
             setBlogs(data);
             setTimeout(() => {
                setLoading(true);
-            }, 1000);
+            }, 500);
          } catch (err) {}
       }
 

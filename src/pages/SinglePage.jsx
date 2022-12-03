@@ -9,11 +9,13 @@ const SinglePage = () => {
    const slug = useParams().slug;
    const { getOne } = useBlogs();
    const [blog, setBlog] = useState({});
+   const [loading, setLoading] = useState(false);
 
    const getData = async () => {
       try {
          const result = await getOne(slug);
          setBlog(result);
+         setLoading(true);
       } catch (err) {}
    }
 
@@ -21,14 +23,14 @@ const SinglePage = () => {
       getData();
    }, [slug])
 
-   window.document.title = 'Narzullayev.uz | ' + blog.title;
+   window.document.title = 'Narzullayev.uz | ' + blog?.title;
    return (
       <section className="single-post-content">
          <div className="container">
             <div className="row">
                <div className="col-md-9 post-content content">
                   <div className="single-post">
-                     {blog ? (
+                     {loading ? (
                         <div className="post-meta d-flex justify-content-between">
                            <div className='left'>
                               <span className="date">{blog?.category?.categoryName}</span>
@@ -43,18 +45,22 @@ const SinglePage = () => {
                               </span>
                            </div>
                         </div>
-                     ): <Skeleton count={1} width={'100%'} />}
+                     ): <Skeleton className='mb-3'  count={1} width={'100%'} />}
                   </div>
-                  {blog ? <h1 className="mb-5">{blog.title}</h1> : <Skeleton count={1} />}
-                  {blog ? <p className='short-content'>{blog.shortContent}</p> : <Skeleton count={1} />}
 
-                  {blog ? (
+                  {loading ? 
+                     <h1 className="mb-5">{blog.title}</h1> 
+                     :  <Skeleton className='mb-4' count={1} />}
+
+                  {loading ? <p className='short-content'>{blog.shortContent}</p> : <Skeleton count={3} />}
+
+                  {loading ? (
                      <img src={blog.image} className="img-fluid w-100 rounded mb-3 mt-4" />
                   ) : (
-                     <Skeleton height={400} />
+                     <Skeleton className='mt-4 mb-4' height={400} />
                   )}
 
-                  {blog ? <p dangerouslySetInnerHTML={{ __html: blog.content }}></p> : <Skeleton count={5} />}
+                  {loading ? <p dangerouslySetInnerHTML={{ __html: blog.content }}></p> : <Skeleton count={5} />}
                </div>
                <TrendingPosts/>
             </div>
