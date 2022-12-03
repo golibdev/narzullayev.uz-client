@@ -22,7 +22,9 @@ async function getOne(slug) {
       const res = await blogApi.getOne(slug);
       const blog = await res.data.blog;
       return blog;
-   } catch (err) {}
+   } catch (err) {
+      return err.response.status
+   }
 }
 
 async function getTopBlogs() {

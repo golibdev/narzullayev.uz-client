@@ -13,6 +13,11 @@ img {
    height: auto;
 }
 
+.error-404 img {
+   width: 300px !important;
+}
+
+
 .content a,
 .content h1,
 .content p,

@@ -4,10 +4,11 @@ import { Pagination } from "../components/Pagination";
 import { TrendingPosts } from "../components/TrendingPosts";
 import useBlogs from "../hooks/useBlogs";
 import Skeleton from 'react-loading-skeleton';
+import { Helmet } from 'react-helmet-async'
+import { Seo } from "../components/Seo";
 
 export const Blogs = () => {
    const title = "Narzullayev.uz | Maqolalar";
-   window.document.title = title;
    const [blogs, setBlogs] = useState([]);
    const [loading, setLoading] = useState(false);
    const [currentPage, setCurrentPage] = useState(0);
@@ -30,6 +31,13 @@ export const Blogs = () => {
    }, [])
    return (
       <>
+         <Seo
+            title={title}
+            type={'article'}
+            description={"Narzullayev G'olibning shaxsiy blog web sayti"}
+            name={'Narzullayev.uz'}
+            author={"G'olib Narzullayev"}
+         />
          <section id="search-result" className="search-result">
             <div className="container">
                <div className="row">

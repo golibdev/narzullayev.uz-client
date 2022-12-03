@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Carousel } from '../components/Carousel'
 import { Posts } from '../components/Posts'
+import { Seo } from '../components/Seo';
 import useBlogs from '../hooks/useBlogs';
 
 export const Home = () => {
    const title = "Narzullayev.uz | Shaxsiy blog";
-   window.document.title = title;
    const [blogs, setBlogs] = useState([]);
    const [loading, setLoading] = useState(false);
    const { getData } = useBlogs()
@@ -25,6 +25,13 @@ export const Home = () => {
    }, [])
    return (
       <>
+         <Seo
+            title={title}
+            type={'article'}
+            description={"Narzullayev G'olibning shaxsiy blog web sayti"}
+            name={'Narzullayev.uz'}
+            author={"G'olib Narzullayev"}
+         />
          <Carousel blogs={blogs} loading={loading} />
          <Posts/>
       </>
