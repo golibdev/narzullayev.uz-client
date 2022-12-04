@@ -20,8 +20,8 @@ async function getPagination(currentPage) {
 async function getOne(slug) {
    try {
       const res = await blogApi.getOne(slug);
-      const blog = await res.data.blog;
-      return blog;
+      const data = await res.data;
+      return data;
    } catch (err) {
       return err.response.status
    }
@@ -33,6 +33,16 @@ async function getTopBlogs() {
       const blogs = await res.data.blogs;
       return blogs;
    } catch (err) {}
+}
+
+async function searchData(params){
+   try {
+      const res = await blogApi.getSearch(params);
+      const data = await res.data.blogs;
+      return {data, status: 200};
+   } catch (err) {
+      return {msg: err.response.data.message, status: 400};
+   }
 }
 
 async function createComment(blogId, params) {
@@ -48,7 +58,8 @@ async function createComment(blogId, params) {
 export {
    getAllBlog,
    getPagination,
-   createComment,
    getOne,
-   getTopBlogs
+   getTopBlogs,
+   searchData,
+   createComment,
 }

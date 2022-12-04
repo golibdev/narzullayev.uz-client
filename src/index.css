@@ -7,6 +7,10 @@
    padding: 0 !important;
 }
 
+.form-control:focus {
+   outline: none !important;
+}
+
 img {
    width: 100% !important;
    object-fit: cover !important;

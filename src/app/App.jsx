@@ -7,7 +7,7 @@ import { Blogs } from '../pages/Blogs';
 import { Error } from '../pages/Error';
 import { Home } from '../pages/Home';
 import SinglePage from '../pages/SinglePage';
-import { HelmetProvider } from 'react-helmet-async'
+import { HelmetProvider } from 'react-helmet-async';
 
 export const App = () => {
    const helmetContext = {};

@@ -11,6 +11,9 @@ export const blogApi = {
    getTopBlogs: () => axios.get(
       `${baseUrl}/blog/top`
    ),
+   getSearch: (params) => axios.get(
+      `${baseUrl}blog/search-data/${params}`
+   ),
    getPagination: (page) => axios.get(
       `${baseUrl}blog/get-pagination?page=${page}`
    ),

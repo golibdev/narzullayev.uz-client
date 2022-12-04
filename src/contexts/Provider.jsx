@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { getAllBlog, createComment, getPagination, getOne, getTopBlogs } from '../services/Services'
+import { getAllBlog, createComment, getPagination, getOne, getTopBlogs, searchData } from '../services/services'
 const Context = createContext(null);
 
 function Provider({ children, ...rest }) {
@@ -21,7 +21,8 @@ function Provider({ children, ...rest }) {
       getPagination,
       getOne,
       createComment,
-      getData
+      getData,
+      searchData
    }
    return (
       <Context.Provider value={data} {...rest}>
