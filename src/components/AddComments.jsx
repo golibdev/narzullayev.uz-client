@@ -2,10 +2,8 @@ import { useEffect, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import useBlogs from '../hooks/useBlogs';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 
 export const AddComments = ({ comments, blogId, slug, setComments }) => {
-   const navigate = useNavigate();
    const { createComment, getOne } = useBlogs();
    const [email, setEmail] = useState('');
    const [comment, setComment] = useState('');
@@ -58,9 +56,6 @@ export const AddComments = ({ comments, blogId, slug, setComments }) => {
          <div className="col-lg-12">
             <h1 className="comment-title mb-3">Izoh qoldirish</h1>
             <div className="row">
-               <div className='col-12 mb-3'>
-                  <LoadCanvasTemplate />
-               </div>
                <div className="col-12 mb-3">
                   <label htmlFor="comment-email" className='form-label'>Elektron pochta</label>
                   <input 
@@ -81,6 +76,9 @@ export const AddComments = ({ comments, blogId, slug, setComments }) => {
                      onChange={e => setComment(e.target.value)}
                      value={comment}
                   />
+               </div>
+               <div className='col-12 mb-3'>
+                  <LoadCanvasTemplate />
                </div>
                <div className='col-12 mb-3'>
                   <input 
