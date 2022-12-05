@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Skeleton from 'react-loading-skeleton';
 
-export const Card = ({item, loading }) => {
+export const Card = ({item, loading, handleClose=null }) => {
    return (
       <div className={`post-entry-1`}>
          {
             loading ? 
-               <Link to={`/blogpost/${item.slugify}`}>
+               <Link onClick={handleClose} to={`/blogpost/${item.slugify}`}>
                   <img src={item.image} alt={item.title} className="img-fluid rounded mb-2 w-100" style={{ height: 190, objectFit: 'cover' }} />
                </Link>
             : <Skeleton height={180} className="mb-3" />
@@ -24,7 +24,7 @@ export const Card = ({item, loading }) => {
          {
             loading ? (
                <h2 style={{ textDecoration: 'underline' }}>
-                  <Link to={`/blogpost/${item.slugify}`}>{item.title}</Link>
+                  <Link onClick={handleClose} to={`/blogpost/${item.slugify}`}>{item.title}</Link>
                </h2>
             ) : <Skeleton count={3}/>
          }

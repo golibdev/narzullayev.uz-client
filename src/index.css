@@ -21,7 +21,6 @@ img {
    width: 300px !important;
 }
 
-
 .content a,
 .content h1,
 .content p,
@@ -54,4 +53,8 @@ img {
 .img-bg,
 .img-fluid {
    object-fit: cover !important;
+}
+
+.offcanvas {
+   height: auto !important;
 }
