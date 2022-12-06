@@ -8,25 +8,28 @@ import { Error } from '../pages/Error';
 import { Home } from '../pages/Home';
 import SinglePage from '../pages/SinglePage';
 import { HelmetProvider } from 'react-helmet-async';
+import { Navbar } from '../components/Navbar';
 
 export const App = () => {
    const helmetContext = {};
    return (
       <Router>
-         <Wrapper>
-            <HelmetProvider context={helmetContext}>
-               <Provider>
-                  <Routes>
-                     <Route path='/' element={<MainLayout/>}>
-                        <Route index element={<Home/>}/>
-                        <Route path='/blogs' element={<Blogs/>}/>
-                        <Route path='/blogpost/:slug' element={<SinglePage/>}/>
-                        <Route path='*' element={<Error/>} />
-                     </Route>
-                  </Routes>
-               </Provider>
-            </HelmetProvider>
-         </Wrapper>
+         <div>
+            <Wrapper>
+               <HelmetProvider context={helmetContext}>
+                  <Provider>
+                     <Routes>
+                        <Route path='/' element={<MainLayout/>}>
+                           <Route index element={<Home/>}/>
+                           <Route path='/blogs' element={<Blogs/>}/>
+                           <Route path='/blogpost/:slug' element={<SinglePage/>}/>
+                           <Route path='*' element={<Error/>} />
+                        </Route>
+                     </Routes>
+                  </Provider>
+               </HelmetProvider>
+            </Wrapper>
+         </div>
       </Router>
    )
 }
