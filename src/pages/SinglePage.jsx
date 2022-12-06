@@ -62,7 +62,7 @@ const SinglePage = () => {
                               </div>
                               <div className='right'>
                                  <span className='me-3'>
-                                    {moment(blog.creatadAt).format('DD.MM.YYYY')}
+                                    {moment(blog.createdAt).format('DD.MM.YYYY')}
                                  </span>
                                  <span>
                                     <i className='bi bi-eye me-1'></i>
