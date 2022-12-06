@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { navbarLinks } from '../constants/navbarLinks';
 import useBlogs from '../hooks/useBlogs';
@@ -16,17 +16,19 @@ export const Navbar = () => {
          const value = e.target.value;
          if(value.length > 0) {
             const res = await searchData(value);
-            setBlogs(res.data);
+            if(res.status === 400) {
+               setBlogs([]);
+            } else {
+               setBlogs(res.data)
+            }
             setIsSearch(true);
             setLoading(true);
-
-            if(blogs.length > 0) {
-               window.document.querySelector('.offcanvas').style.height = 'auto';
-            }
+            window.document.querySelector('.offcanvas').style.backgroundImage = "none"
          } else {
             setIsSearch(false);
             setLoading(false);
-            window.document.querySelector('.offcanvas').style.height = '260px';
+            setBlogs([])
+            window.document.querySelector('.offcanvas').style.backgroundImage = "url('/assets/img/search.png')"
          }
       } catch (err) {}
    }

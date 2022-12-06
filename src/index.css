@@ -55,6 +55,11 @@ img {
    object-fit: cover !important;
 }
 
-/* .offcanvas {
-   height: auto !important;
-} */
+.offcanvas {
+   height: 100% !important;
+   background-image: url('/assets/img/search.png');
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center;
+   object-fit: cover;
+}

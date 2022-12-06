@@ -15,7 +15,7 @@ export const Card = ({item, loading, handleClose=null }) => {
          {
             loading ? 
                <div className="post-meta">
-                  <span className="date">{item.category.categoryName}</span>
+                  <span className="date">{item.category?.categoryName}</span>
                   <span className="mx-1">•</span> 
                   <span>{moment(item.createdAt).format('DD.MM.YYYY')}</span>
                </div>

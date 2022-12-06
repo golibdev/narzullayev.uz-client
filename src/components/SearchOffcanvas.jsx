@@ -23,7 +23,7 @@ export const SearchOffcanvas = ({ show, blogs, loading, handleClose, searchHandl
                            ))
                         )
                      ) : (
-                        isSearch && <h5>Qidiruv natijasida ma'lumot topilmadi</h5>
+                        isSearch && <h5 className='mt-4'>Qidiruv natijasida ma'lumot topilmadi</h5>
                      )
                   }
                </Row>
